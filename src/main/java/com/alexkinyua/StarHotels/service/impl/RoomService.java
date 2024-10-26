@@ -6,6 +6,7 @@ import com.alexkinyua.StarHotels.entity.Room;
 import com.alexkinyua.StarHotels.exception.OurException;
 import com.alexkinyua.StarHotels.repository.BookingRepository;
 import com.alexkinyua.StarHotels.repository.RoomRepository;
+import com.alexkinyua.StarHotels.service.CloudinaryService;
 import com.alexkinyua.StarHotels.service.ImageService;
 import com.alexkinyua.StarHotels.service.interfaces.IRoomService;
 import com.alexkinyua.StarHotels.utils.Utils;
@@ -25,14 +26,18 @@ public class RoomService implements IRoomService {
     private final RoomRepository roomRepository;
     private final BookingRepository bookingRepository;
     private final ImageService imageService;
+    private final CloudinaryService cloudinaryService;
 
     @Override
     public Response addNewRoom(MultipartFile photo, String roomType, BigDecimal roomPrice, String description) {
         Response response = new Response();
         try{
-            String imageUrl = imageService.saveImage(photo);
+//            String imageUrl = imageService.saveImage(photo);
+            String folderName = "RoomPhotos";
+
             Room room = new Room();
-            room.setRoomPhotoUrl(imageUrl);
+//            room.setRoomPhotoUrl(imageUrl);
+            room.setRoomPhotoUrl(cloudinaryService.uploadFile(photo, folderName));
             room.setRoomType(roomType);
             room.setRoomPrice(roomPrice);
             room.setRoomDescription(description);

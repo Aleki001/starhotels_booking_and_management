@@ -18,4 +18,8 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
 
-#bucket-name todo
+
+cloudinary:
+  cloud_name: dzoqhnqg0
+  api_key: 274183385243265
+  api_secret: SJigVubsJunUh91iqYfz6mC6oHA

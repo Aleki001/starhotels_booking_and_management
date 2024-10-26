@@ -89,7 +89,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<!--		todo add amazons3 dependancy -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
@@ -108,8 +107,11 @@
 			<version>3.0.2</version>
 		</dependency>
 
-
-
+		<dependency>
+			<groupId>com.cloudinary</groupId>
+			<artifactId>cloudinary-http44</artifactId>
+			<version>1.31.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
